@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <NuxtLink to="/" ><navElement :title="'Home'" :img-src="'/img/home.svg'" /></NuxtLink>
-        <NuxtLink to="/project" ><navElement :title="'Projects'" :img-src="'/img/folder.svg'" /></NuxtLink>
+        <NuxtLink to="/search" ><navElement :title="'Search'" :img-src="'/img/search.svg'" /></NuxtLink>
         <NuxtLink to="/contact" ><navElement :title="'Contact'" :img-src="'/img/phone-call.svg'" /></NuxtLink>
     </div>
 </template>
