@@ -1,5 +1,5 @@
 <template>
-    <div id="blog" class="Technology Electronics">
+    <div class="blog" :class="category">
         <div id="author">
             Sample Author
         </div>
@@ -23,3 +23,12 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
 <style scoped>
     @import '/styles/blog-blurb.css';
 </style>
+
+<script setup>
+    const props = defineProps({
+        category: String,
+        author: String,
+        content: String,
+        title: String
+    });
+</script>

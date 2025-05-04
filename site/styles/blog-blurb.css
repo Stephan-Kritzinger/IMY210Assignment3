@@ -1,7 +1,7 @@
-#blog{
+.blog{
     margin: 40px;
 }
-#blog > div{
+.blog > div{
     border: 1px solid black;
     border-bottom: none;
     padding: 10px;

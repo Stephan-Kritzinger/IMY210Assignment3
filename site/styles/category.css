@@ -1,0 +1,10 @@
+#category-dropdown{
+    display:flex;
+    margin-right: 40px;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.dropdown{
+    margin-left: 10px;
+}
+
