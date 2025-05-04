@@ -10,26 +10,36 @@
             </div>
         </div>
     </div>
-    <div>
+    <div v-if="blogs.length">
         <blog :ref="el => blogList[i] = el" v-for="(blog, i) in blogs" :key="i" :author="blog.author" :title="blog.title" :content="blog.content" :category="blog.category" />
     </div>
 </template>
 
 <script setup>
     import blog from "@/components/blog-blurb.vue";
-    import {ref} from "vue";
+    import {ref, onMounted} from "vue";
 
-    const blogs = [
-        {author: "e", title: "e", content: "e", category: "Technology"},
-        {author: "e", title: "e", content: "e", category: "Electronics"},
-        {author: "e", title: "e", content: "e", category: "Electronics"},
-        {author: "e", title: "e", content: "e", category: "Electronics"}
-    ]
+    const blogs = ref([
+        {author: "e", title: "b", content: "e", category: "Technology"},
+        {author: "a", title: "b", content: "e", category: "Electronics"},
+        {author: "e", title: "c", content: "e", category: "Electronics"},
+        {author: "a", title: "c", content: "e", category: "Electronics"}
+    ])
 
     const options = ref(null);
     const filter = ref(null);
     const clear = ref(null);
     const blogList = ref([]);
+    const route = useRoute();
+
+    onMounted(async () => {
+        if(route.query.author){
+            blogs.value = blogs.value.filter(blogTemp => blogTemp.author === route.query.author);
+        }
+        if(route.query.blogTitle){
+            blogs.value = blogs.value.filter(blogTemp => blogTemp.title === route.query.blogTitle);
+        }
+    });
 
     function showDropdown(){
         options.value.classList.toggle("hidden");

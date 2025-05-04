@@ -1,10 +1,10 @@
 <template>
     <div class="blog" :class="category">
         <div id="author">
-            Sample Author
+            {{ author }}
         </div>
         <div id="title">
-            Sample Title
+            {{ title }}
         </div>
         <div id="content">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget quam in neque tincidunt interdum et ac ante. Donec accumsan eros sed dolor pharetra facilisis. Cras interdum dui eget ex cursus, eu consequat velit maximus. Aenean quis viverra libero. Morbi convallis, elit sit amet maximus tempor, odio nibh hendrerit orci, eu congue ex mi sit amet magna. Sed et consequat quam, sed consequat nisl. Quisque mattis orci sit amet dignissim consectetur. Praesent a quam aliquam, posuere elit vel, interdum tortor. Cras molestie vitae risus ut condimentum. Praesent ante diam, fringilla vel tincidunt eget, fringilla id neque. Ut et ligula risus.
