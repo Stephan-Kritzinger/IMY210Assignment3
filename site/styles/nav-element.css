@@ -1,0 +1,18 @@
+.nav-element img{
+    /*Change the svg to white*/
+    filter: invert(94%) sepia(2%) saturate(982%) hue-rotate(325deg) brightness(107%) contrast(89%);
+    transform: translateY(3px);
+}
+.nav-element span{
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+    color: white;
+}
+.nav-element:not(:last-child) span{
+    border-right: 2px solid gray;
+}
+.nav-element:hover{
+    background-color: gray;
+}
