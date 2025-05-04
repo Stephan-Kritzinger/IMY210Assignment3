@@ -1,9 +1,9 @@
 <template>
-    <div id="blog">
+    <div id="blog" class="Technology Electronics">
         <div id="author">
-            Sample Data
+            Sample Author
         </div>
-        <div id="Title">
+        <div id="title">
             Sample Title
         </div>
         <div id="content">
@@ -19,3 +19,7 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
         </div>
     </div>
 </template>
+
+<style scoped>
+    @import '/styles/blog-blurb.css';
+</style>

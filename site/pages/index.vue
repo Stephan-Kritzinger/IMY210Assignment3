@@ -1,5 +1,8 @@
 <template>
     <blog />
+    <blog />
+    <blog />
+    <blog />
 </template>
 
 <script setup>
