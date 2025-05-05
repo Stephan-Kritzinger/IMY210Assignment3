@@ -14,20 +14,24 @@
    import media from "@/components/media.vue";
    import slider from "@/components/slider.vue";
 
+   const route = useRoute();
+
    const page = ref();
    const title = ref("");
    const author = ref("");
    const category = ref("");
    const blocks = ref([]);
 
-   const parseData = async() => {
-        const response = await fetch("http://localhost:1337/api/articles/imouhuv8w93ylge0506g7goc?populate[0]=author&populate[1]=category&populate[2]=blocks&populate[3]=blocks.files");
+   const parseData = async(id) => {
+        const response = await fetch("http://localhost:1337/api/articles/" + id + "?populate[0]=author&populate[1]=category&populate[2]=blocks&populate[3]=blocks.files");
         const data = await response.json();
         page.value = data.data;
    }
 
    onMounted(async () => {
-    await parseData();
+    const docId = await route.query.docId;
+
+    await parseData(docId);
     title.value = page.value.title;
     author.value = page.value.author.name;
     category.value = page.value.category.name;
