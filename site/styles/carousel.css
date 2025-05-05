@@ -1,0 +1,14 @@
+.slider{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button{
+    cursor: pointer;
+    padding: 10px;
+}
+
+button:hover{
+    
+}
