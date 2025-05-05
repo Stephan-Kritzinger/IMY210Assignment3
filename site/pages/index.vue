@@ -5,8 +5,7 @@
             <span ref="filter">--Select a Category--</span>
             <div ref="options" class="dropdown-options hidden">
                 <div ref="clear" @click="filterDrop('clear')" class="hidden">Clear Filter</div>
-                <div @click="filterDrop('Technology')">Technology</div>
-                <div @click="filterDrop('Electronics')">Electronics</div>
+                <div v-for="(category, i) in categories" :key="i" @click="filterDrop(category)">{{ category }}</div>
             </div>
         </div>
     </div>
@@ -19,7 +18,8 @@
     import blog from "@/components/blog-blurb.vue";
     import {ref, onMounted} from "vue";
 
-    const blogs = ref([])
+    const blogs = ref([]);
+    const categories = ref([]);
 
     const options = ref(null);
     const filter = ref(null);
@@ -31,14 +31,20 @@
         const response = await fetch("http://localhost:1337/api/articles?populate[0]=author&populate[1]=category");
         const data = await response.json();
         for (const article of data.data) {
-        blogs.value.push({
-            author: article.author.name,
-            title: article.title,
-            content: article.description,
-            category: article.category.name,
-            id: article.documentId
-        });
-    }
+            blogs.value.push({
+                author: article.author.name,
+                title: article.title,
+                content: article.description,
+                category: article.category.name,
+                id: article.documentId
+            });
+        }
+        const response2 = await fetch("http://localhost:1337/api/categories");
+        const data2 = await response2.json();
+
+        for(const category of data2.data){
+            categories.value.push(category.name);
+        }
     }
 
     onMounted(async () => {
