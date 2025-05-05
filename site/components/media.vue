@@ -17,3 +17,7 @@
         imgUrl.value = `http://localhost:1337${data.url}`;
     });
 </script>
+
+<style scoped>
+    @import "/styles/media.css";
+</style>

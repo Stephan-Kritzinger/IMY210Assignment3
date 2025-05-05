@@ -57,3 +57,7 @@
     }
    }
 </script>
+
+<style scoped>
+    @import "/styles/blog.css";
+</style>

@@ -1,8 +1,10 @@
 <template>
     <div class="slider">
         <media :id="currentImageId" :key="currentImageId"/>
-        <button @click="prev">&lt; Prev</button>
-        <button @click="next">Next &gt;</button>
+        <div id="buttons">
+            <button @click="prev">&lt; Prev</button>
+            <button @click="next">Next &gt;</button>
+        </div>
     </div>
 </template>
 

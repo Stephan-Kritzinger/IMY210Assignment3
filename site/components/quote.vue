@@ -1,6 +1,6 @@
 <template>
     <div class="quote">
-        `<span id="message">{{ message }}</span>` - {{ author }}
+        `<span id="message">{{ message }}</span>` - <span id="author">{{ author }}</span>
     </div>
 </template>
 
@@ -15,3 +15,7 @@
     const message = ref(props.message);
     const author = ref(props.author);
 </script>
+
+<style scoped>
+    @import "/styles/quote.css";
+</style>
