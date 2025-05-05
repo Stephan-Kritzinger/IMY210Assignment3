@@ -12,15 +12,8 @@
 }
 #content{
     border-bottom: 1px solid black !important;
-    height: 90px;
+    height: 30px;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-}
-#content:before{
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    transform: translate(-3px, -4px);
 }
