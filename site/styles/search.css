@@ -1,0 +1,11 @@
+div:not(#button){
+    display:flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 20px;
+}
+#button{
+    display: flex;
+    justify-content: center;
+    
+}
