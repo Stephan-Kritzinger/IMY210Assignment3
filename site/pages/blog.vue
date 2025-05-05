@@ -23,7 +23,7 @@
    const blocks = ref([]);
 
    const parseData = async(id) => {
-        const response = await fetch("http://localhost:1337/api/articles/" + id + "?populate[0]=author&populate[1]=category&populate[2]=blocks&populate[3]=blocks.files");
+        const response = await fetch("http://localhost:1337/api/articles/" + id + "?populate[0]=author&populate[1]=category&populate[2]=blocks&populate[3]=blocks.files&populate[4]=blocks.file");
         const data = await response.json();
         page.value = data.data;
    }
@@ -55,7 +55,7 @@
         case "shared.quote":
             return {message: block.body, author: block.title};
         case "shared.media":
-            return {id: block.id};
+            return {id: block.file.id};
         case "shared.slider":
             return {imageIds: block.files.map(file => file.id) };
     }

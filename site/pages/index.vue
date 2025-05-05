@@ -11,7 +11,7 @@
         </div>
     </div>
     <div v-if="blogs.length">
-        <blog :ref="el => blogList[i] = el" v-for="(blog, i) in blogs" :key="i" :author="blog.author" :title="blog.title" :content="blog.content" :category="blog.category" />
+        <blog :ref="el => blogList[i] = el" v-for="(blog, i) in blogs" :key="i" :author="blog.author" :title="blog.title" :content="blog.content" :category="blog.category" :id="blog.id" />
     </div>
 </template>
 
@@ -19,12 +19,7 @@
     import blog from "@/components/blog-blurb.vue";
     import {ref, onMounted} from "vue";
 
-    const blogs = ref([
-        {author: "e", title: "b", content: "e", category: "Technology"},
-        {author: "a", title: "b", content: "e", category: "Electronics"},
-        {author: "e", title: "c", content: "e", category: "Electronics"},
-        {author: "a", title: "c", content: "e", category: "Electronics"}
-    ])
+    const blogs = ref([])
 
     const options = ref(null);
     const filter = ref(null);
@@ -32,7 +27,22 @@
     const blogList = ref([]);
     const route = useRoute();
 
+    const getBlogs = async() => {
+        const response = await fetch("http://localhost:1337/api/articles?populate[0]=author&populate[1]=category");
+        const data = await response.json();
+        for (const article of data.data) {
+        blogs.value.push({
+            author: article.author.name,
+            title: article.title,
+            content: article.description,
+            category: article.category.name,
+            id: article.documentId
+        });
+    }
+    }
+
     onMounted(async () => {
+        await getBlogs();
         if(route.query.author){
             blogs.value = blogs.value.filter(blogTemp => blogTemp.author === route.query.author);
         }
