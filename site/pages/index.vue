@@ -11,7 +11,6 @@
     </div>
     <div v-if="blogs.length">
         <blog :ref="el => blogList[i] = el" v-for="(blog, i) in blogs" :key="i" :author="blog.author" :title="blog.title" :content="blog.content" :category="blog.category" :id="blog.id" />
-            e
     </div>
 </template>
 
@@ -39,7 +38,6 @@
                 category: article.category.name,
                 id: article.documentId
             });
-            console.log(article);
         }
         const response2 = await fetch("http://localhost:1337/api/categories");
         const data2 = await response2.json();
