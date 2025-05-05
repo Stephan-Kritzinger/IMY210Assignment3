@@ -1,0 +1,13 @@
+#message{
+    color: rgb(105, 100, 100);
+    font-style: italic;
+    font-size: 22px;
+}
+#author{
+    font-weight: bold;
+}
+.quote{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
